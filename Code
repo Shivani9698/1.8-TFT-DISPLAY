@@ -1,0 +1,39 @@
+#include <TFT.h>  // Include the TFT library, which allows us to control the TFT display.
+#include <SPI.h>  // Include the SPI library, which enables communication with the TFT screen.
+
+// Pin definitions for Arduino UNO
+#define cs   10   // Chip select pin for TFT screen.
+#define dc   9    // Data/command pin for TFT screen.
+#define rst  8    // Reset pin for TFT screen.
+
+// Create an instance of the TFT library using the defined pin connections.
+TFT TFTscreen = TFT(cs, dc, rst);
+
+void setup() {
+
+  // Initialize the TFT library and prepare it for use.
+  TFTscreen.begin();
+
+  // Clear the screen with a black background (RGB values: 0, 0, 0).
+  TFTscreen.background(0, 0, 0);
+
+  // Set the text size for future text prints on the screen.
+  TFTscreen.setTextSize(2);
+}
+
+void loop() {
+
+  // Generate random values for red, green, and blue color components (0-255).
+  int redRandom = random(0, 255);
+  int greenRandom = random(0, 255);
+  int blueRandom = random(0, 255);
+  
+  // Set a random font color for the text on the screen.
+  TFTscreen.stroke(redRandom, greenRandom, blueRandom);
+  
+  // Print "Hello, World!" in the middle of the screen at coordinates (6, 57).
+  TFTscreen.text("Hello, World!", 6, 57);
+  
+  // Wait for 200 milliseconds before changing to the next random color.
+  delay(200);
+}
