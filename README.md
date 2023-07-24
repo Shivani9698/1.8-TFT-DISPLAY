@@ -17,12 +17,19 @@ This Arduino sketch displays the text "Hello, World!" on a TFT screen using a ra
 
 1.8 TFT Display	Wiring to Arduino Uno
 LED-	3.3 V
+
 SCK-	13
+
 SDA	-11
+
 A0 or DC-	9
+
 RESET-	8
+
 CS	-10
+
 GND-	GND
+
 VCC-	5 V
 
 ## Software Requirements
